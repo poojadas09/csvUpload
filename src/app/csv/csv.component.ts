@@ -22,9 +22,9 @@ export class CsvComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsText(input.files[0]);
     reader.onload = data => {
-      const csvData = reader.result;
+      const csvData: any= reader.result;
       const csvRecordsArray = csvData.split(/\r\n|\n/);
-      this.csvRecords = this.getDataFromCSVFile(csvRecordsArray, ",");
+      this.csvRecords = this.getDataFromCSVFile(csvRecordsArray, ","); 
       this.downloadCSV(this.csvRecords);
       if (this.csvRecords == null) {
         this.fileReset();
